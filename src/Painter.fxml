@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="264.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="479.0" minWidth="10.0" prefWidth="336.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Pane fx:id="drawinPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#onMouseDragged" prefHeight="395.0" GridPane.columnIndex="1" />
+      <VBox alignment="TOP_CENTER" prefHeight="395.0" prefWidth="220.0" spacing="10.0" GridPane.halignment="CENTER">
+         <children>
+            <TitledPane animated="false" maxWidth="1.7976931348623157E308" text="Drawing Color">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="181.0">
+                     <children>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <GridPane hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="78.0" minWidth="10.0" prefWidth="78.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="56.0" minWidth="10.0" prefWidth="37.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="75.0" minWidth="10.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Rectangle fx:id="colorRectange" arcHeight="5.0" arcWidth="5.0" height="76.0" stroke="BLACK" strokeType="INSIDE" width="65.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowSpan="4" GridPane.vgrow="ALWAYS" />
+                                    <Label text="Red" />
+                                    <Label text="Green" GridPane.rowIndex="1" />
+                                    <Label text="Blue" GridPane.rowIndex="2" />
+                                    <Label text="Alpha" GridPane.rowIndex="3" />
+                                    <Slider fx:id="redSlider" blockIncrement="1.0" max="254.0" GridPane.columnIndex="1" />
+                                    <Slider fx:id="greenSlider" blockIncrement="1.0" max="254.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Slider fx:id="blueSlider" blockIncrement="1.0" max="254.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Slider fx:id="alphaSlider" blockIncrement="0.1" max="1.0" value="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="redTextField" GridPane.columnIndex="2" />
+                                    <TextField fx:id="greenTextField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <TextField fx:id="blueTextField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <TextField fx:id="alphaTextField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="10.0" text="Pen Size">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="small" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#sizeButtonClicked" text="Small">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="sizeToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="medium" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#sizeButtonClicked" selected="true" text="Medium" toggleGroup="$sizeToggleGroup" />
+                        <RadioButton fx:id="large" layoutX="14.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#sizeButtonClicked" text="Large" toggleGroup="$sizeToggleGroup" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <Button fx:id="undo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#undoButtonClicked" prefWidth="400.0" text="Undo" />
+            <Button fx:id="clear" layoutX="10.0" layoutY="295.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clearButtonClicked" prefWidth="400.0" text="Clear" />
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </VBox>
+   </children>
+   <padding>
+      <Insets top="5.0" />
+   </padding>
+</GridPane>
